@@ -3,10 +3,13 @@
 
 :root {
     --primary: #fe2c55;
+    --white: rgb(255, 255, 255);
+    --text-color: rgba(255, 255, 255, 0.9);
+    --backgroud-color-common: rgb(18, 18, 18);
 
     //Default layout
     --default-layout-header-height: 60px;
-    --default-layout-width: 1150px;
+    --default-layout-width: 1528px;
 }
 
 * {
@@ -20,8 +23,22 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: 'IBM Plex Sans', TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+    background-color: var(--backgroud-color-common);
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
 }
