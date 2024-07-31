@@ -11,15 +11,15 @@ function AccountItem() {
             <div className={cx('wrapper')}>
                 <img
                     className={cx('avatar')}
-                    src="https://p9-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/daabb3492fb60065fb43903c6239cd39~c5_300x300.webp?lk3s=a5d48078&nonce=58502&refresh_token=f93c17b7059b9d4768ba041d8ee81a5e&x-expires=1722074400&x-signature=zle%2F9MCwfHmzmfqhhz006F5I2qs%3D&shp=a5d48078&shcp=c1333099"
+                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=36379&refresh_token=a5fcc1024ef73e5d16c5072af2281270&x-expires=1722589200&x-signature=Uz8Izc9WQbRgKdqC8bjEQtA4EbE%3D&shp=a5d48078&shcp=81f88b70"
                     alt="Hoa"
                 />
                 <div className={cx('info')}>
                     <h4 className={cx('name')}>
-                        <span>Vu Truong Phuoc</span>
+                        <span>hoaa.hanassii</span>
                         <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
                     </h4>
-                    <span className={cx('username')}>phuoc</span>
+                    <span className={cx('username')}>daolephuonghoa</span>
                 </div>
             </div>
         </>
