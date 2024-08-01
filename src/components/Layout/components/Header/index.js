@@ -10,9 +10,14 @@ import {
     faEarthAsia,
     faQuestionCircle,
     faKeyboard,
+    faCloudUpload,
+    faGear,
+    faCoins,
+    faUser,
+    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-
-import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -20,8 +25,10 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
-
+import 'tippy.js/dist/tippy.css';
 const cx = classNames.bind(styles);
+
+const currentUser = true;
 
 const MENU_ITEMS = [
     {
@@ -73,6 +80,31 @@ function Header() {
         }
     };
 
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'View profile',
+            to: '/@hoaa',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get coins',
+            to: '/coin',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Setting',
+            to: '/settings',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log out',
+            to: '/logout',
+            separate: true,
+        },
+    ];
+
     return (
         <>
             <header className={cx('wrapper')}>
@@ -80,7 +112,7 @@ function Header() {
                     <div className={cx('logo')}>
                         <img src={images.logo.default} alt="Tiktok" />
                     </div>
-                    <Tippy
+                    <HeadlessTippy
                         interactive={true}
                         visible={searchResult.length > 0}
                         render={(attrs) => (
@@ -106,16 +138,36 @@ function Header() {
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                             </button>
                         </div>
-                    </Tippy>
+                    </HeadlessTippy>
                     <div className={cx('actions')}>
-                        <Button text>Upload</Button>
-                        <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
-                            Log in
-                        </Button>
-                        <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
+                        {currentUser ? (
+                            <>
+                                <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                                    <div className={cx('action-btn')}>
+                                        <FontAwesomeIcon icon={faCloudUpload} />
+                                    </div>
+                                </Tippy>
+                            </>
+                        ) : (
+                            <>
+                                <Button text>Upload</Button>
+                                <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>
+                                    Log in
+                                </Button>
+                            </>
+                        )}
+                        <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                            {currentUser ? (
+                                <img
+                                    className={cx('user-avatar')}
+                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=36379&refresh_token=a5fcc1024ef73e5d16c5072af2281270&x-expires=1722589200&x-signature=Uz8Izc9WQbRgKdqC8bjEQtA4EbE%3D&shp=a5d48078&shcp=81f88b70"
+                                    alt="Hoa"
+                                />
+                            ) : (
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            )}
                         </Menu>
                     </div>
                 </div>
