@@ -22,7 +22,13 @@
 }
 .logo {
     line-height: normal;
-    padding-top: 15px;
+    display: flex;
+    align-items: center;
+
+    img {
+        line-height: 0px;
+        padding-top: 8px;
+    }
 }
 
 .search,
@@ -129,6 +135,7 @@
     font-size: 2.4rem;
     background-color: transparent;
     padding: 4px 12px;
+    line-height: 0px;
     cursor: pointer;
 }
 

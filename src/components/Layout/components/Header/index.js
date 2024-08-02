@@ -10,7 +10,6 @@ import {
     faEarthAsia,
     faQuestionCircle,
     faKeyboard,
-    faCloudUpload,
     faGear,
     faCoins,
     faUser,
@@ -26,6 +25,9 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { InboxIcon, MessagesIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
+
 const cx = classNames.bind(styles);
 
 const currentUser = true;
@@ -93,7 +95,7 @@ function Header() {
         },
         {
             icon: <FontAwesomeIcon icon={faGear} />,
-            title: 'Setting',
+            title: 'Settings',
             to: '/settings',
         },
         ...MENU_ITEMS,
@@ -144,7 +146,17 @@ function Header() {
                             <>
                                 <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                     <div className={cx('action-btn')}>
-                                        <FontAwesomeIcon icon={faCloudUpload} />
+                                        <UploadIcon />
+                                    </div>
+                                </Tippy>
+                                <Tippy delay={[0, 200]} content="Messages" placement="bottom">
+                                    <div className={cx('action-btn')}>
+                                        <MessagesIcon />
+                                    </div>
+                                </Tippy>
+                                <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
+                                    <div className={cx('action-btn')}>
+                                        <InboxIcon />
                                     </div>
                                 </Tippy>
                             </>
@@ -158,10 +170,11 @@ function Header() {
                         )}
                         <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                             {currentUser ? (
-                                <img
+                                <Image
                                     className={cx('user-avatar')}
                                     src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=36379&refresh_token=a5fcc1024ef73e5d16c5072af2281270&x-expires=1722589200&x-signature=Uz8Izc9WQbRgKdqC8bjEQtA4EbE%3D&shp=a5d48078&shcp=81f88b70"
                                     alt="Hoa"
+                                    fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/8e01c31828aa9057d487babd27dba98e~c5_720x720.jpeg?lk3s=a5d48078&nonce=23379&refresh_token=dccec6b3e015e5d0332cea8cd829a456&x-expires=1722758400&x-signature=QILAKbqFYprwfR6DleqVTfwWpPU%3D&shp=a5d48078&shcp=81f88b70"
                                 />
                             ) : (
                                 <button className={cx('more-btn')}>
