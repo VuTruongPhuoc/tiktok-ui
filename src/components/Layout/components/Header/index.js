@@ -1,10 +1,6 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faSpinner,
-    faMagnifyingGlass,
-    faCircleXmark,
     faSignIn,
     faEllipsisVertical,
     faEarthAsia,
@@ -16,14 +12,12 @@ import {
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 
 import Button from '~/components/Button';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import Search from '~/components/Layout/components/Search';
 import 'tippy.js/dist/tippy.css';
 import { InboxIcon, MessagesIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
@@ -64,14 +58,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 0);
-    }, []);
-
     //Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -114,33 +100,9 @@ function Header() {
                     <div className={cx('logo')}>
                         <img src={images.logo.default} alt="Tiktok" />
                     </div>
-                    <HeadlessTippy
-                        interactive={true}
-                        visible={searchResult.length > 0}
-                        render={(attrs) => (
-                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                                <PopperWrapper>
-                                    <h3 className={cx('search-title')}>Accounts</h3>
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                </PopperWrapper>
-                            </div>
-                        )}
-                    >
-                        <div className={cx('search')}>
-                            <input placeholder="Search" spellCheck={false} />
-                            <button className={cx('clear')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-                            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
-                            <button className={cx('search-btn')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </div>
-                    </HeadlessTippy>
+                    <Search />
+
                     <div className={cx('actions')}>
                         {currentUser ? (
                             <>
@@ -157,6 +119,7 @@ function Header() {
                                 <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
                                     <div className={cx('action-btn')}>
                                         <InboxIcon />
+                                        <sup className={cx('inbox-amount')}>13</sup>
                                     </div>
                                 </Tippy>
                             </>
@@ -172,9 +135,9 @@ function Header() {
                             {currentUser ? (
                                 <Image
                                     className={cx('user-avatar')}
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=36379&refresh_token=a5fcc1024ef73e5d16c5072af2281270&x-expires=1722589200&x-signature=Uz8Izc9WQbRgKdqC8bjEQtA4EbE%3D&shp=a5d48078&shcp=81f88b70"
+                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=14955&refresh_token=d1712649878bd0603b6473f0647fdf3f&x-expires=1722996000&x-signature=5oeBGS559yeFdblM3SiMM9A%2BmfA%3D&shp=a5d48078&shcp=81f88b70"
                                     alt="Hoa"
-                                    fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/8e01c31828aa9057d487babd27dba98e~c5_720x720.jpeg?lk3s=a5d48078&nonce=23379&refresh_token=dccec6b3e015e5d0332cea8cd829a456&x-expires=1722758400&x-signature=QILAKbqFYprwfR6DleqVTfwWpPU%3D&shp=a5d48078&shcp=81f88b70"
+                                    fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/8e01c31828aa9057d487babd27dba98e~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=56887&refresh_token=3b20c5356b041a474b21e86165f48904&x-expires=1722996000&x-signature=C0fv6FOijyYD4VJiLWTIveFsIAQ%3D&shp=a5d48078&shcp=81f88b70"
                                 />
                             ) : (
                                 <button className={cx('more-btn')}>

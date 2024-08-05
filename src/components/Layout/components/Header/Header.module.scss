@@ -31,91 +31,7 @@
     }
 }
 
-.search,
-.search-result {
-    width: 500px;
-}
-
-.search {
-    position: relative;
-    height: var(--search-height);
-    padding-left: 16px;
-    display: flex;
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: var(--search-border-radius);
-    border: 1.5px solid transparent;
-
-    input {
-        flex: 1;
-        height: 100%;
-        color: var(--white);
-        font-size: 1.6rem;
-        border: none;
-        outline: none;
-        caret-color: var(--primary);
-        background-color: transparent;
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 1px;
-        top: var(--search-top-space);
-        right: var(--search-bottom-width);
-        height: calc(var(--search-height) - var(--search-top-space) * 2);
-        background-color: rgba(255, 255, 255, 0.08);
-    }
-
-    &:focus-within {
-        border-color: rgba(255, 255, 255, 0.2);
-    }
-    &:hover {
-        border-color: rgba(255, 255, 255, 0.2);
-        input:not(:placeholder-shown) ~ .search-btn {
-            background-color: rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.9);
-        }
-    }
-}
-
-.search-title {
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.clear,
-.loading {
-    position: absolute;
-    right: calc(var(--search-bottom-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.34);
-    background-color: transparent;
-}
-.search-btn {
-    width: var(--search-bottom-width);
-    height: 100%;
-    border-top-right-radius: var(--search-border-radius);
-    border-bottom-right-radius: var(--search-border-radius);
-    background-color: var(--text-color);
-    background: transparent;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 1.8rem;
-
-    &:hover {
-        cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.34);
-        color: rgba(255, 255, 255, 0.9);
-    }
-    &:active {
-        background-color: rgba(255, 255, 255, 0.08);
-    }
-}
-
+//Actions
 .actions {
     display: flex;
     align-items: center;
@@ -137,6 +53,25 @@
     padding: 4px 12px;
     line-height: 0px;
     cursor: pointer;
+    display: flex;
+    position: relative;
+
+    .inbox-amount {
+        color: rgb(255, 255, 255);
+        font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+        left: 26px;
+        line-height: 1.8rem;
+        margin-right: 10px;
+        background: rgb(255, 59, 92);
+        min-width: 20px;
+        text-align: center;
+        height: 20px;
+        border-radius: 10px;
+        top: -20%;
+        position: absolute;
+    }
 }
 
 .user-avatar {
