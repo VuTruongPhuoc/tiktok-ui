@@ -63,7 +63,18 @@
     color: rgba(255, 255, 255, 0.34);
     background-color: transparent;
 }
-//end 1
+
+.loading {
+    animation: spinner 0.8s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
 
 //2
 .search-btn {
