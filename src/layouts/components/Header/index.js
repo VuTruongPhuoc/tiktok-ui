@@ -15,12 +15,12 @@ import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-import Search from '~/components/Layout/components/Search';
+import Search from '~/layouts/components/Search';
 import { InboxIcon, MessagesIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 
@@ -100,7 +100,7 @@ function Header() {
             <header className={cx('wrapper')}>
                 <div className={cx('inner')}>
                     <div className={cx('logo')}>
-                        <Link to={routesConfig.home}>
+                        <Link to={config.routes.home}>
                             <img src={images.logo.default} alt="Tiktok" />
                         </Link>
                     </div>
@@ -139,7 +139,7 @@ function Header() {
                             {currentUser ? (
                                 <Image
                                     className={cx('user-avatar')}
-                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=14955&refresh_token=d1712649878bd0603b6473f0647fdf3f&x-expires=1722996000&x-signature=5oeBGS559yeFdblM3SiMM9A%2BmfA%3D&shp=a5d48078&shcp=81f88b70"
+                                    src="https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/99095e17a41c7bb3ea3bd5cb262b0938.jpeg?lk3s=a5d48078&nonce=16153&refresh_token=c9dc3e761e5392d39be05f8d14880846&x-expires=1723273200&x-signature=Ik%2FCyKYZk82HAsG2oCO8Ym2j5nA%3D&shp=a5d48078&shcp=81f88b70"
                                     alt="Hoa"
                                     fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/8e01c31828aa9057d487babd27dba98e~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=56887&refresh_token=3b20c5356b041a474b21e86165f48904&x-expires=1722996000&x-signature=C0fv6FOijyYD4VJiLWTIveFsIAQ%3D&shp=a5d48078&shcp=81f88b70"
                                 />
