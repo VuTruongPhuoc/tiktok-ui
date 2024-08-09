@@ -3,11 +3,12 @@
     --primary: #fe2c55;
     --white: rgb(255, 255, 255);
     --text-color: rgba(255, 255, 255, 0.9);
-    --backgroud-color-common: rgb(18, 18, 18);
+    --background-color-common: rgb(18, 18, 18);
 
     //Default layout
     --default-layout-header-height: 60px;
-    --default-layout-width: 1528px;
+    --default-layout-width: 1400px;
+    --default-layout-horizontal-spacer: 16px;
 }
 
 * {
@@ -26,9 +27,8 @@ body {
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     color: var(--text-color);
-    background-color: var(--backgroud-color-common);
+    background-color: var(--background-color-common);
     overflow-y: auto;
-    height: 2000px;
 }
 
 //Scrollbar CSS

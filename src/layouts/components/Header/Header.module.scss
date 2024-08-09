@@ -4,12 +4,12 @@
     --search-top-space: 9px;
     --search-bottom-width: 52px;
 
+    display: flex;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    display: flex;
-    justify-content: center;
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: rgba(255, 255, 255, 0.12) 0px 1px 1px;
@@ -17,17 +17,17 @@
     border-bottom: red;
 }
 .inner {
-    height: 100%;
-    width: var(--default-layout-width);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px 0 16px;
+    width: var(--default-layout-width);
+    height: 100%;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 .logo {
-    line-height: normal;
     display: flex;
     align-items: center;
+    line-height: normal;
 
     img {
         line-height: 0px;
@@ -51,29 +51,29 @@
 }
 
 .action-btn {
-    color: (255, 255, 255, 0.9);
-    font-size: 2.4rem;
-    background-color: transparent;
-    padding: 4px 12px;
-    line-height: 0px;
-    cursor: pointer;
     display: flex;
     position: relative;
+    font-size: 2.4rem;
+    padding: 4px 12px;
+    color: (255, 255, 255, 0.9);
+    background-color: transparent;
+    line-height: 0px;
+    cursor: pointer;
 
     .inbox-amount {
-        color: rgb(255, 255, 255);
         font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
         font-weight: 600;
         font-size: 1.2rem;
         left: 26px;
         line-height: 1.8rem;
         margin-right: 10px;
-        background: rgb(255, 59, 92);
         min-width: 20px;
-        text-align: center;
         height: 20px;
-        border-radius: 10px;
         top: -20%;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        background: rgb(255, 59, 92);
+        text-align: center;
         position: absolute;
     }
 }
