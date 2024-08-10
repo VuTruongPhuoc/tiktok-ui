@@ -101,7 +101,7 @@ function Search() {
                         {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                         <button className={cx('search-btn')} onMouseDown={handleSubmit}>
-                            <SearchIcon />
+                            <SearchIcon className={cx('search-icon')} />
                         </button>
                     </div>
                 </HeadlessTippy>

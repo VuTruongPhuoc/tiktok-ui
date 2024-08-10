@@ -79,11 +79,11 @@
 
 //2
 .search-btn {
+    display: flex;
     width: var(--search-bottom-width);
     height: 100%;
     border-top-right-radius: var(--search-border-radius);
     border-bottom-right-radius: var(--search-border-radius);
-    background-color: var(--text-color);
     background: transparent;
     color: rgba(255, 255, 255, 0.75);
     font-size: 1.8rem;
@@ -96,5 +96,12 @@
     &:active {
         background-color: rgba(255, 255, 255, 0.08);
     }
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
 }
 //end 2
