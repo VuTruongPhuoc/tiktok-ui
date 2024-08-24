@@ -2,13 +2,9 @@
     position: relative;
     margin: 0px auto;
     width: 100%;
-    min-width: 420px;
+    min-width: 800px;
     flex-shrink: 1;
     display: flex;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    flex-direction: column;
-    -webkit-box-align: center;
     align-items: center;
 }
 
@@ -17,8 +13,20 @@
     max-width: 100%;
     margin-top: var(--default-layout-header-height);
     display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    position: relative;
+    height: 100%;
+    width: 240px;
+    bottom: 0;
 }
 
 .content {
-    flex: 1;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }

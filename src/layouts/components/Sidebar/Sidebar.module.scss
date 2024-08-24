@@ -1,7 +1,19 @@
 .wrapper {
-    width: 240px;
-    padding: 20px 0px 26px 8px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
     min-height: 100%;
+    width: 240px;
+    padding: 20px 0px 106px 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden auto;
+    &:hover {
+        height: calc(100vh);
+        overflow-y: auto;
+    }
 }
 .user-exit-following {
     width: 32px;
