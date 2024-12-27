@@ -5,6 +5,7 @@ function Following() {
             <h2>This is following page</h2>
             <h3>This is following page check conflict</h3>
             <h4>This is main</h4>
+            <h5>Hi this is following page app</h5>
         </>
     );
 }
