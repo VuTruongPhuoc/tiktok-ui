@@ -75,8 +75,8 @@ function Search() {
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
                                 <h3 className={cx('search-title')}>Accounts</h3>
-                                {searchResult.map((result) => (
-                                    <AccountItem key={result.id} data={result} onClick={() => setShowResult(false)} />
+                                {searchResult.map((item) => (
+                                    <AccountItem key={item.id} data={item} onClick={() => setShowResult(false)} />
                                 ))}
                             </PopperWrapper>
                         </div>
